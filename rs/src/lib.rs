@@ -1,1 +1,2 @@
-pub mod union_find;
+pub mod algo;
+pub mod ds;

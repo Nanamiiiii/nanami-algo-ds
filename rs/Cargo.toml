@@ -2,7 +2,15 @@
 name = "nanami-algo-ds"
 version = "0.1.0"
 edition = "2021"
+authors = ["Akihiro Saiki <nanami@myuu.dev>"]
+description = "Self-made algorithm and data-structure implementation"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+clap = { version = "4.3.23", features = ["derive", "env"] }
+proconio = { version = "0.4.5", features = ["derive"] }
+
+[dev-dependencies]
+rstest = "0.18.2"
