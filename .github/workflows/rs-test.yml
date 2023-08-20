@@ -1,0 +1,35 @@
+name: Cargo build & test
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'rs/**'
+      - '.github/workflows/rs-test.yml'
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'rs/**'
+      - '.github/workflows/rs-test.yml'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      name: Checkout
+      
+    - name: Build
+      working-directory: 'rs'
+      run: cargo build --verbose
+      
+    - name: Run tests
+      working-directory: 'rs'
+      run: cargo test --verbose
