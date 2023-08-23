@@ -105,7 +105,7 @@ impl<T, P: Ord + Copy> PriorityQueue<T, P> {
     }
 }
 
-pub struct ElemWithPriority<T, P: Ord + Copy>(pub T, pub P);
+pub struct ElemWithPriority<T, P: Ord + Copy>(T, P);
 
 impl<T, P: Ord + Copy> ElemWithPriority<T, P> {
     fn new(obj: T, priority: P) -> ElemWithPriority<T, P> {
@@ -114,6 +114,22 @@ impl<T, P: Ord + Copy> ElemWithPriority<T, P> {
 
     fn rev(obj: T, priority: P) -> Reverse<ElemWithPriority<T, P>> {
         Reverse(ElemWithPriority::new(obj, priority))
+    }
+
+    pub fn item(&self) -> &T {
+        &self.0
+    }
+
+    pub fn item_mut(&mut self) -> &mut T {
+        &mut self.0
+    }
+
+    pub fn priority(&self) -> &P {
+        &self.1
+    }
+
+    pub fn priority_mut(&mut self) -> &mut P {
+        &mut self.1
     }
 }
 

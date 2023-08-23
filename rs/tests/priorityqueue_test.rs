@@ -16,7 +16,7 @@ mod priorityqueue_test {
             priority_q.push(*i, *p);
         }
         for i in pop_order {
-            assert_eq!(*i, priority_q.pop().unwrap().0);
+            assert_eq!(*i, *priority_q.pop().unwrap().item());
         }
         assert!(priority_q.pop().is_none())
     }
